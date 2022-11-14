@@ -45,7 +45,7 @@
   animation: animate 2s linear infinite;
   transition: 0.5s;
 }
-.inputBox input:valid ~ i::before,
+
 .inputBox input:focus ~ i::before {
   left: 0;
 }
@@ -67,24 +67,24 @@
   left: 0;
   padding: 15px;
   pointer-events: none;
-  font-size: 1em;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   transition: 0.5s;
 }
 
-.inputBox input:valid ~ span,
+
 .inputBox input:focus ~ span {
   color: #50c9c3;
   /* lift up */
   transform: translateX(15px) translateY(-7px);
-  font-size: 0.65em;
+  font-size: 14px;
   padding: 0 5px;
   background: #09203f;
   letter-spacing: 0.1em;
 }
 
-.inputBox:nth-child(3) input:valid ~ span,
+
 .inputBox:nth-child(3) input:focus ~ span {
   background: #50c9c3;
   color: white;
@@ -99,7 +99,7 @@
   padding: 10px 30px;
   border-radius: 5px;
   background: none;
-  font-size: 1em;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-weight: 600;
