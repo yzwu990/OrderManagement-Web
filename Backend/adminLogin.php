@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./Style/login.css">
     <link rel="stylesheet" href="./Style/index.css">
 
+
+<!-- <body> part is only for test use.  -->
+<!-- username and password should be passed by JS from the HTML page -->
+
 <body>
     <!-- <form action="adminLogin.html" method="get" onsubmit="return validate();"> -->
     <form method="post" action="adminLogin.php">
@@ -54,7 +58,7 @@ if(isset($_POST['login_Btn'])) {
         } else {
             echo "<script>
                     alert('Login unsuccessful');
-                </script";
+                </script">;
         }
     }
 }
