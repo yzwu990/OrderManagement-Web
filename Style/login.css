@@ -5,7 +5,6 @@
 }
 
 .box {
-  height: 100vh;
   background: #09203f;
   display: flex;
   justify-content: center;
@@ -104,6 +103,7 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-weight: 600;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .buttonBox button:hover {
@@ -119,3 +119,5 @@
     background-position-x: 250px;
   }
 }
+
+

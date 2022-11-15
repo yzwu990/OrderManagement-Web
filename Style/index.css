@@ -16,12 +16,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 110px;
+  justify-content: center;
+  gap: 50px;
 }
 
 h1 {
   color: #50c9c3;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .department {
@@ -29,6 +30,7 @@ h1 {
   justify-content: center;
   user-select: none;
   gap: 130px;
+  margin-top: 50px;
 }
 
 .department p a {
@@ -92,7 +94,7 @@ h1 {
   color: #50c9c3;
   font-size: 20px;
   font-weight: 700;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 a {
@@ -108,61 +110,10 @@ footer {
   z-index: 1;
   color: rgba(255, 255, 255, 0.8);
   font-style: italic;
-  border-radius: 5px;
+  /* margin-left: auto;
+  margin-right: 10px; */
 }
 
-/*
-Below is the CSS for the loader.
-Scripts are from https://cssloaders.github.io/
-*/
-.loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 1s linear infinite;
-}
-
-.loader::before,
-.loader::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  inset: 0px;
-  border-radius: 50%;
-  border: 5px solid #fff;
-  animation: prixClipFix 2s linear infinite;
-}
-
-.loader::after {
-  border-color: #50c9c3;
-  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
-  inset: 6px;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes prixClipFix {
-  0% {
-    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
-  }
-  25% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
-  }
-  50% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
-  }
-  75% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
-  }
-  100% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
-  }
+img {
+  width: 10%;
 }
