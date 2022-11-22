@@ -6,13 +6,13 @@
 }
 
 :root {
-  --clr-neon: #50c9c3;
-  --clr-bg: #09203f;
+  --main-neon: #50c9c3;
+  --main-bg: #09203f;
 }
 
 body {
   height: 100vh;
-  background: #09203f;
+  background: var(--main-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  color: #50c9c3;
+  color: var(--main-neon);
   margin-top: 50px;
 }
 
@@ -29,19 +29,19 @@ h1 {
   display: flex;
   justify-content: center;
   user-select: none;
-  gap: 130px;
+  gap: 60px;
   margin-top: 50px;
 }
 
 .department p a {
-  color: #50c9c3;
+  color: var(--main-neon);
   padding: 20px 10px;
-  border: #50c9c3 8px solid;
+  border: var(--main-neon) 8px solid;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-  box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+  box-shadow: inset 0 0 0.5em 0 var(--main-neon), 0 0 0.5em 0 var(--main-neon);
   position: relative;
 }
 
@@ -49,7 +49,7 @@ h1 {
   pointer-events: none;
   content: "";
   position: absolute;
-  background: var(--clr-neon);
+  background: var(--main-neon);
   top: 120%;
   left: 0;
   width: 100%;
@@ -69,10 +69,10 @@ h1 {
   left: 0;
   right: 0;
 
-  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  box-shadow: 0 0 2em 0.5em var(--main-neon);
   opacity: 0;
   transition: opacity 100ms linear;
-  background: var(--clr-neon);
+  background: var(--main-neon);
   z-index: -1;
 }
 
@@ -91,7 +91,7 @@ h1 {
 }
 
 .welcome {
-  color: #50c9c3;
+  color: var(--main-neon);
   font-size: 20px;
   font-weight: 700;
   margin-top: 70px;
