@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./Style/index.css">
 
 
-<!-- <body> part is only for test use.  -->
-<!-- username and password should be passed by JS from the HTML page -->
+    <!-- <body> part is only for test use.  -->
+    <!-- username and password should be passed by JS from the HTML page -->
 
 <body>
     <!-- <form action="adminLogin.html" method="get" onsubmit="return validate();"> -->
@@ -46,19 +46,19 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "");
 
-if(isset($_POST['login_Btn'])) {
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $sql= "SELECT * FROM WebAssignment2DB.logindetails WHERE username = '$username'";
-    $result = mysqli_query($conn,$sql);
+if (isset($_POST['login_Btn'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM WebAssignment2DB.logindetails WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
         $resultPassword = $row['password'];
-        if($password == $resultPassword) {
+        if ($password == $resultPassword) {
             header('Location:index.html');
         } else {
             echo "<script>
                     alert('Login unsuccessful');
-                </script">;
+                </script>";
         }
     }
 }
