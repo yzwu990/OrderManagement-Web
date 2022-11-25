@@ -121,3 +121,13 @@ function addTable(data) {
   generateTableHead(table, tableData);
   generateTable(table, data);
 }
+
+/* this section is for php */
+
+function validate_register() {
+  
+  // maybe change to onblur() and prompt the errors 
+  alert('Registration unsuccessful');
+}
+
+/* php section ends */
