@@ -44,6 +44,7 @@
 
 </html>
 <?php
+
 $conn = mysqli_connect("localhost", "root", "");
 
 if (isset($_POST['login_Btn'])) {
@@ -54,7 +55,7 @@ if (isset($_POST['login_Btn'])) {
     while ($row = mysqli_fetch_assoc($result)) {
         $resultPassword = $row['password'];
         if ($password == $resultPassword) {
-            header('Location:index.html');
+            header('Location: ../index.html');
         } else {
             echo "<script>
                     alert('Login unsuccessful');
