@@ -2,7 +2,7 @@
     include_once 'dbh.inc.php';
     //   sendRequest('https://jsonplaceholder.typicode.com/posts', 'GET', undefined, domUpdate);
 
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,29 +50,92 @@
     
     <?php 
 
+        // MUST give all arguments a dummy value first
+        $id = 0;
+        $username = 'n';
+        $password = 'n';
+        $table = 'user';
+        $newName = 'n';
+        $newPassword = 'n';
+
+
         /* 
-        //testing get data (worked), this will print a string on the screen if connected.
-        $sql = "SELECT * FROM `logindetails`";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
-        if($resultCheck > 0) {
-            while ($row = mysqli_fetch_assoc($result) ) {
-                echo $row['id'];
-            }
+        // set data
+        */
+        function addUser($id, $username, $password) {
+
+            include 'dbh.inc.php';
+
+            $register_adduser = "INSERT INTO 'user' (`id`, `username`, `password`) VALUES ($id, $username, $password);";
+            // $register_adduser = "INSERT INTO 'user' (`id`, `username`, `password`) VALUES (103, '103', '103');";
+            
+            echo $register_adduser;
+            $result = mysqli_query($conn, $register_adduser);
+            echo $result;
+
+            $conn->close();
         }
+
+        
+        addUser(105, '105', '105');
+        
+        /* 
+        // delete data
         */
+        function deleteRecord($id, $table) {
+
+            include 'dbh.inc.php';
+
+            $register_deleterecord = "DELETE FROM $table WHERE $table.`id` = $id;";
+            $result = mysqli_query($conn, $register_deleterecord);
+
+            // $conn->close();
+
+            echo "user deleted !!";
+        }
 
         /* 
-        //testing set data (worked)
+        // update data 
         */
-        // $register_adduser = "INSERT INTO `logindetails` (`id`, `username`, `password`) VALUES ('105', 'user105', 'user105');";
-        // $result = mysqli_query($conn, $register_new);
+        function updateUser($id, $newName, $newPassword) {
+            
+            include 'dbh.inc.php';
+
+            $register_updateuser = "UPDATE user SET username = $newName WHERE id = $id;";
+            $result = mysqli_query($conn, $register_updateuser);
+
+            $conn->close();
+
+        }
+
+        function updateItem($id, $newName, $newPassword) {
+            
+            include 'dbh.inc.php';
+
+            $register_updateuser = "UPDATE user SET username = $newName WHERE id = $id;";
+            $result = mysqli_query($conn, $register_updateuser);
+
+            $conn->close();
+
+        }
 
         /* 
-        //testing delete data (worked)
-        */
-        // $register_deleteuser = "DELETE FROM `logindetails` WHERE `logindetails`.`id` = 101;";
-        // $result = mysqli_query($conn, $register_new);
+        // search data (worked), this will print a string on the screen if connected.
+        */  
+        // function searchRecord() {
+            
+        //     $sql = "SELECT * FROM 'user'";
+        //     $result = mysqli_query($conn, $sql);
+        //     $resultCheck = mysqli_num_rows($result);
+        //     if($resultCheck > 0) {
+        //         while ($row = mysqli_fetch_assoc($result) ) {
+        //             echo $row['id'];
+        //         }
+        //     }
+
+        // }
+
+        
 
 
     ?>
