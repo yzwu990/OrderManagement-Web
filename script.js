@@ -124,10 +124,16 @@ function addTable(data) {
 
 /* this section is for php */
 
+function submit_registration() {
+  
+  sendRequest('http://localhost/Backend/register_submit.php', 'POST', undefined, null);
+}
+
 function validate_register() {
   
   var loginValid = true;
     
+  alert("validate_register()");
   alert(register_username);
 
   if(!loginValid) {
@@ -136,8 +142,18 @@ function validate_register() {
     return false;
   }
 
-  // I dont know what submit does
-  document.getElementById("register_form").submit();
+  // // I dont know what submit does
+  // document.getElementById("register_form").submit();
+
+  alert('Registration successful');
+  let bodyData = JSON.stringify({
+    register_username: document.getElementById("register_username").value,
+    register_password: document.getElementById("register_password").value,
+  })
+
+  
+  sendRequest('http://localhost/Backend/register_submit.php', 'POST', bodyData, null);
+
     
 }
 

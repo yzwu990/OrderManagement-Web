@@ -1,5 +1,7 @@
 <?php
     include_once 'dbh.inc.php';
+    //   sendRequest('https://jsonplaceholder.typicode.com/posts', 'GET', undefined, domUpdate);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +26,11 @@
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="text" name="register_password" id="register_password" placeholder="password">
-                
+                <input type="password" name="register_password" id="register_password" placeholder="password">
                 <i></i>
             </div>
             <div class="inputBox">
-                <input type="password">
-                <span>Retype password</span>
+                <input type="password" name="register_password_retype" id="register_password_retype" placeholder="retype password">
                 <i></i>
             </div>
 
