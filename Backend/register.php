@@ -17,8 +17,18 @@
 <body>
 
     <?php 
-        $sql = "SELECT id FROM logindetails;";
-        $result = mysqli_query();
+        $sql = "SELECT * FROM `logindetails`";
+        $result = mysqli_query($conn, $sql);
+
+        /* 
+        //testing get data 
+        $resultCheck = mysqli_num_rows($result);
+        if($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($result) ) {
+                echo $row['id'];
+            }
+        }
+        */
 
     ?>
 

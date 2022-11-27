@@ -4,8 +4,8 @@
     $dbServername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
-    // $dbName = "webassignment2db";
+    $dbName = "webassignment2db";
     
-    $conn = mysqli_connect("localhost", "root", "");
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
 ?>
