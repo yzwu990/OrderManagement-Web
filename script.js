@@ -126,8 +126,20 @@ function addTable(data) {
 
 function validate_register() {
   
-  // maybe change to onblur() and prompt the errors 
-  alert('Registration unsuccessful');
+  var loginValid = true;
+    
+  alert(register_username);
+
+  if(!loginValid) {
+    
+    alert('Registration unsuccessful');
+    return false;
+  }
+
+  // I dont know what submit does
+  document.getElementById("register_form").submit();
+    
 }
+
 
 /* php section ends */
