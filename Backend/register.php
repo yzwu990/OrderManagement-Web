@@ -1,3 +1,7 @@
+<?php
+    include_once 'dbh.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +15,14 @@
 </head>
 
 <body>
-    <form action="adminLogin.html" method="get" onsubmit="return validate_register();">
+
+    <?php 
+        $sql = "SELECT id FROM logindetails;";
+        $result = mysqli_query();
+
+    ?>
+
+    <form action="../dataDisplay.html" method="get" onsubmit="return validate_register();">
         <div class="box">
             <h2>User Register</h2>
             <div class="inputBox">

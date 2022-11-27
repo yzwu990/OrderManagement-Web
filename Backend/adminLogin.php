@@ -1,3 +1,7 @@
+<?php
+    include_once 'dbh.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +49,8 @@
 </html>
 <?php
 
-$conn = mysqli_connect("localhost", "root", "");
+// moved to dbh.ici.php
+// $conn = mysqli_connect("localhost", "root", "");
 
 if (isset($_POST['login_Btn'])) {
     $username = $_POST['username'];
