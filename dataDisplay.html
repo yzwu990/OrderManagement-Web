@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./Style/data.css">
+    <script src="./Script/displayScript.js" defer></script>
 </head>
 <body>
     <h1 class="main-heading">Welcome</h1>
@@ -14,19 +15,18 @@
 
         <!--search bar with filter by and sort by options-->
         <div class="search-bar">
-            <form action="" method="" onsubmit="">
-                <input type="text" name="search" placeholder="Search"><button id="search-btn">Search</button>
+            <form>
+                <input class="search" type="text" name="search" placeholder="Search"><button id="search-btn" class="search">Search</button>
                 
-                <select name="sort" id="sort">
+                <select name="sort" id="sort" class="search">
                     <option value="">Sort by</option>
-                    <option value="lowest-price">Lowest Price</option>
-                    <option value="highest-price">Highest Price</option>
-                    <option value="newest">Newest</option>
+                    <option value="lowest-price">Lowest Quantity</option>
+                    <option value="highest-price">Highest Quantity</option>
                 </select>
             </form>
         </div>
         <div class="right-menu">
-            <button>Sign out</button>
+            <button id="logout">Log out</button>
         </div>
     </div>
     <hr>
@@ -35,45 +35,45 @@
         <div class="main-container">
             <div class="sidebar">
                 <ul class="filters">
-                    <li class="filter"><a>Women</a></li>
-                    <li class="filter"><a>Men</a></li>
-                    <li class="filter"><a>Kids</a></li>
+                    <li class="filter">Filter by:</li>
+                    <li class="filter"><a href="#">Women</a></li>
+                    <li class="filter"><a href="#">Men</a></li>
+                    <li class="filter"><a href="#">Kids</a></li>
                 </ul>
             </div>
             <div class="content">
-                <h2>main area to display content from database</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eius magni quo neque sapiente corporis ducimus, nesciunt enim aspernatur, perferendis, placeat quibusdam? Assumenda eaque perferendis magnam suscipit. Similique, ducimus provident!
-                    Eius, eveniet praesentium quo sint quae fuga, voluptas iste dolor reprehenderit omnis veniam consequatur? Alias animi atque voluptatem, dignissimos quasi quia adipisci ipsam a eaque omnis ipsum nobis veritatis quibusdam.
-                    Illum praesentium vitae odio ratione iusto. Corrupti ratione alias sunt ab. Doloribus, enim nesciunt sed, illo ex eligendi exercitationem molestiae voluptatum aut dolorem voluptates distinctio non, delectus veniam tempora similique.
-                    Numquam illum maxime, repudiandae excepturi magnam facilis doloribus vel totam minus voluptatem dolorem soluta amet aspernatur officiis accusamus rem. Nam porro temporibus est molestiae velit blanditiis tempore qui nulla dicta!
-                    Culpa cum provident sapiente voluptates, dolore autem consequuntur pariatur aut amet neque, voluptate libero laboriosam facere. Quibusdam cum eligendi, dicta, fugiat maiores dolor illum quia autem blanditiis illo molestias facere?
-                    Culpa veniam facere soluta nemo iure commodi aliquid animi minima totam doloremque ipsum ea laboriosam ipsa a et nisi amet illo consectetur ratione, velit vitae nulla, odit voluptate! Ullam, sequi.
-                    Suscipit consequatur possimus, dignissimos obcaecati atque, molestias autem at eius voluptatibus quaerat velit eum? Consequatur molestiae ipsam non ex et tenetur maxime aspernatur voluptate officia, nobis sint eum, nesciunt excepturi.
-                    Veniam, possimus reprehenderit. Expedita cum eveniet delectus adipisci inventore libero repudiandae. Suscipit corporis voluptate dolorum. Quidem voluptas unde iure enim sunt quisquam blanditiis quibusdam quaerat vero? Ducimus iusto repellat libero.
-                    Placeat maxime a distinctio earum id incidunt itaque, voluptate neque voluptas, modi architecto facilis iste quod temporibus veritatis hic sapiente? Veniam facilis ipsa impedit nam id officia temporibus, illum fuga.
-                    Perspiciatis inventore iure odio atque soluta reiciendis commodi corrupti quibusdam a natus saepe ut provident doloribus consequuntur reprehenderit ex cumque voluptates vel eius quod mollitia, ipsam deserunt? Distinctio, deleniti dolore?
-                    Velit reiciendis neque non aliquam doloremque. Vel quis cupiditate natus? Laborum, dolores quis illum magni sed veniam provident qui quod, quos libero neque quas quisquam? Fugiat deleniti esse porro suscipit.
-                    Suscipit molestiae aliquam a! Distinctio dolorem doloribus obcaecati cum, possimus dicta eligendi doloremque soluta in eum qui atque sunt vitae enim, impedit eius fuga ipsa modi labore, animi non dolor!
-                    Hic, qui maiores! Mollitia perspiciatis sequi cumque omnis a, aliquam consequuntur. Officiis earum placeat perferendis, quidem velit odio tenetur impedit eveniet. Debitis odio illum nisi animi et ea labore tempora!
-                    Dolorem, veritatis aut obcaecati eos incidunt praesentium repellat ipsam corrupti placeat molestias reprehenderit ex possimus. Hic, fugiat aliquam. Et dolorum libero temporibus ipsum delectus quia porro adipisci quaerat dolor itaque.
-                    Necessitatibus praesentium placeat exercitationem, perspiciatis quod error commodi porro, quam quidem velit perferendis incidunt quaerat eius quia voluptatem fugit culpa vitae voluptatibus tempora dolore nesciunt earum quis ullam. Quaerat, minus?
-                    Rem iure odit et at tempore minus cum atque eos, necessitatibus repudiandae soluta, corrupti consequatur voluptatum facilis aut? Necessitatibus, a excepturi. Repellat, praesentium suscipit. Qui omnis atque doloremque. Ea, eveniet?
-                    Dolorum voluptas labore harum impedit dignissimos incidunt aspernatur, facere possimus vero tempore! Culpa error deserunt deleniti hic natus quibusdam a aperiam ab dolor aspernatur? Soluta, eum aliquid! Adipisci, a odio.
-                    Debitis eveniet ab, tenetur, adipisci veniam, repellat iusto doloribus quisquam eligendi maxime ipsa. Vero, incidunt veritatis laudantium ab numquam, officia rem, nam quia enim laborum sapiente assumenda iste mollitia saepe!
-                    Doloribus sint minus nisi fugiat et inventore maiores quidem eos sapiente, animi minima praesentium voluptatum, quasi dicta earum officia ipsum officiis sunt, est vel quam? Sunt, quos. Amet, alias maxime.
-                    Suscipit non perspiciatis et voluptatibus vitae assumenda iste reiciendis pariatur tempore quidem delectus aspernatur quam blanditiis distinctio cum, repudiandae aliquam quasi doloribus officiis asperiores! Quam, iure repellendus! A, aliquam eum?
-                    Qui aperiam necessitatibus, iure tempora amet quo praesentium blanditiis? Expedita ducimus quidem, aperiam atque debitis eius nemo esse eligendi quibusdam qui cupiditate itaque earum libero laudantium fugiat distinctio ut totam!
-                    Eaque beatae hic esse, commodi ipsa fugit fuga ducimus blanditiis deleniti suscipit repellat nesciunt distinctio consectetur voluptatum nostrum illo neque ex aliquid iste non! Totam eius doloremque molestias placeat nisi?
-                    Repellat maxime dignissimos expedita laborum illum, omnis ab. Modi quos, excepturi in dignissimos numquam rem praesentium omnis iusto rerum vero veritatis perspiciatis, atque tempore? Quas, adipisci neque? Corporis, aliquid harum.
-                    Culpa repellendus corrupti unde illo aperiam. Cum voluptatum obcaecati dolores at, dolore commodi ducimus vel corrupti, doloremque, quod incidunt optio ipsam in ipsum accusantium dignissimos amet tenetur. Vitae, quam consequatur?
-                    Id totam impedit iste nesciunt quisquam dolores, atque similique vitae et explicabo quis, expedita molestias. Quam accusamus quod ut similique sint ab. Aliquid eum nobis asperiores quasi consectetur praesentium excepturi?
-                    Velit sapiente error nesciunt. Tempore ipsum, ex eum aperiam sint laboriosam, voluptas impedit quibusdam dolores commodi rerum voluptate aspernatur et! In impedit aperiam dicta illo optio a, quibusdam blanditiis labore.
-                </p>
+                <!-- <h2>main area to display content from database</h2> -->
+                <table class="data_table">
+                    <tr>
+                        <th>Item</td>
+                        <th>Quantity</td>
+                        <th>Location</td>
+                    </tr>
+                    <tr>
+                        <td>Item1</td>
+                        <td>10</td>
+                        <td>Aisle A1</td>
+                    </tr>
+                    <tr>
+                        <td>Item2</td>
+                        <td>20</td>
+                        <td>Aisle A1</td>
+                    </tr>
+                    <tr>
+                        <td>Item3</td>
+                        <td>30</td>
+                        <td>Aisle A1</td>
+                    </tr>
+                    <tr>
+                        <td>Item4</td>
+                        <td>40</td>
+                        <td>Aisle A1</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </main>
-    
+    <hr>
     <!-- Footer -->
     <footer>
         <div>
