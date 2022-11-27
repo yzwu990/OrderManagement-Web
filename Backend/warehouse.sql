@@ -2,11 +2,12 @@
 -- Date: 2022-11-24
 
 -- create database for warehouse
-CREATE DATABASE warehouse;
+DROP DATABASE IF EXISTS warehouse ;
+CREATE DATABASE IF NOT EXISTS warehouse ;
 
-
+USE WAREHOUSE;
 -- create items table
-CREATE TABLE items (
+CREATE TABLE item (
 	ID INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(100),
     price DECIMAL(10,2),
@@ -20,23 +21,22 @@ CREATE TABLE items (
 
 
 -- create users table
-CREATE TABLE users (
+CREATE TABLE user (
 	ID INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(100),
-    password varchar(20)
+    password varchar(5)
 );
 
 
 -- create administrators table
-CREATE TABLE admins (
+CREATE TABLE admin (
 	ID INT AUTO_INCREMENT PRIMARY KEY,
-    admin_ID INT,
     name varchar(100),
-    FOREIGN KEY (admin_ID) REFERENCES USER(ID)
+    password varchar(5)
 );
 
 -- populate the items table
-INSERT INTO items (ID, name, price, quantity, size, color, location, status, intake_date)
+INSERT INTO item (ID, name, price, quantity, size, color, location, status, intake_date)
 VALUES
 ('1', 'Jacket', '123.4', '20', 'L', 'black', 'A1', 'in stock', '2021-10-10'),
 ('2', 'Jacket', '123.4', '50', 'M', 'pink', 'A2', 'in stock', '2021-10-20'),
@@ -49,7 +49,7 @@ VALUES
 
 
 -- populate the users table
-INSERT INTO users (ID, name, password)
+INSERT INTO user (ID, name, password)
 VALUES 
 ('1', 'Sally', 'abcde'),
 ('2', 'John', '12345'),
@@ -59,8 +59,11 @@ VALUES
 ('6', 'Juliet', '12345');
 
 -- populate the admins table
-INSERT INTO admins (ID, admin_ID, name)
+INSERT INTO admin (ID, name, password)
 VALUES
-('1', '1', 'Sally'),
-('2', '4', 'Beth'),
-('3', '5', 'Selina');
+('1', 'Mary', 'abcde'),
+('2', 'Tim', 'abcde'),
+('3', 'Jake', 'abcde');
+
+select * from user;
+
