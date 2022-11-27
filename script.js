@@ -149,10 +149,10 @@ function validate_register() {
   let bodyData = JSON.stringify({
     register_username: document.getElementById("register_username").value,
     register_password: document.getElementById("register_password").value,
+    func: 'checkName'
   })
 
-  
-  sendRequest('http://localhost/Backend/register_submit.php', 'POST', bodyData, null);
+  sendRequest('http://localhost/Backend/register_submit.php', 'POST', bodyData, postDomUpdate);
 
     
 }

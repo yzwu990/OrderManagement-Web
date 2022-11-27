@@ -55,7 +55,7 @@
 if (isset($_POST['login_Btn'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $sql = "SELECT * FROM WebAssignment2DB.logindetails WHERE username = '$username'";
+    $sql = "SELECT * FROM WebAssignment2DB.user WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
         $resultPassword = $row['password'];
