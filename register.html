@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <form action="adminLogin.html" method="get" onsubmit="return validate();">
+    <form action= "./Backend/register_submit.php" method="post" onsubmit="return validate_register();">
         <div class="box">
             <h2>User Register</h2>
-            <div class="inputBox">
+            <!-- <div class="inputBox">
                 <input type="text">
                 <span>username</span>
                 <i></i>
@@ -27,6 +27,19 @@
             <div class="inputBox">
                 <input type="password">
                 <span>Retype password</span>
+                <i></i>
+            </div> -->
+            
+            <div class="inputBox">
+                <input type="text" name="register_username" id="register_username" placeholder="username">
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" name="register_password" id="register_password" placeholder="password">
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" name="register_password_retype" id="register_password_retype" placeholder="retype password">
                 <i></i>
             </div>
 
