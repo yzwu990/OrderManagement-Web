@@ -1,129 +1,182 @@
-/* Author: Thanwa Chaichankanchang */
+/* --------------------------------------------------------------
+# Author: Thanwa Chaichankanchang
+# CST8285 Web Programming
+# Assignment 2
+# CSS for datadisplay page (management.html & itemManagement.html)
+---------------------------------------------------------------*/
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
-    --main-neon: #50c9c3;
-    --main-bg: #09203f;
+  --main-neon: #50c9c3;
+  --main-bg: #09203f;
 }
 
 body {
-    padding: 10px;
-    background-color: var(--main-bg);
+  padding: 10px;
+  background-color: var(--main-bg);
 }
 
 .main-heading {
-    text-align: center;
-    margin: 1rem;
-    color: var(--main-neon);
+  text-align: center;
+  margin: 1rem;
+  color: var(--main-neon);
 }
 
 .menu-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 3em;
-    height: 60px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3em;
+  height: 60px;
+  align-items: center;
 }
 
 .search {
-    font-size: 1em;
-    padding-top: 2px;
-    padding-bottom: 2px;
+  font-size: 1em;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 #search-btn {
-    padding-left: 5px;
-    padding-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#logout {
-    padding: 5px 10px;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
+.functionButton {
+  padding: 5px 10px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  margin: 5px 10px;
 }
 
 .main-container {
-    display: flex;
-    height: 75vh;
+  display: flex;
+  height: 75vh;
 }
 
 .sidebar {
-    min-width: 180px;
-    border-right: 2px solid white;
-    padding: 40px;
+  min-width: 180px;
+  border-right: 2px solid white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
 }
-
 .filter {
-    list-style: none;
-    margin-bottom: 25px;
-    color: var(--main-neon);
+  list-style: none;
+  margin-bottom: 25px;
+  color: var(--main-neon);
 }
 
-.filter-btn{
-    text-decoration: none;
-    color: var(--main-neon);
-    border: 2px solid var(--main-neon);
-    padding: 5px 13px;
-    border-radius: 5px;
-    background-color: var(--main-bg);
-    font-size: 1em;
+.filter-btn {
+  text-decoration: none;
+  color: var(--main-neon);
+  border: 2px solid var(--main-neon);
+  padding: 5px 13px;
+  border-radius: 5px;
+  background-color: var(--main-bg);
+  font-size: 1em;
 }
 
-.filter-btn:hover, .active {
-    background-color: var(--main-neon);
-    color: white;
+.filter-btn:hover,
+.active {
+  background-color: var(--main-neon);
+  color: white;
 }
+
 .content {
-    margin: 1em;
-    color: var(--main-neon);
-    width: 100%
+  margin: 1em;
+  color: var(--main-neon);
+  width: 100%;
+  text-align: center;
+  overflow: auto;
 }
 
 #data-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: white;
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
 }
 
 th {
-    background-color: #467cc4;
-    padding: 12px 8px;
-    text-align: left;
-    border: 1px solid black;
-    color: white;
-
+  background-color: #467cc4;
+  padding: 12px 8px;
+  text-align: left;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
 }
 
 td {
-    border: 1px solid black;
-    padding: 8px;
-    color: black;
+  border: 1px solid black;
+  padding: 8px;
+  color: black;
+  text-align: center;
+  height: 15px;
+  width: auto;
 }
 
-tr:nth-child(even){
-    background-color: #f2f2f2;
+td input {
+  text-align: center;
+  width: 100px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr td:last-of-type {
+  display: flex;
+  justify-content: space-evenly;
+  height: auto;
+  width: auto;
+}
+
+.filter {
+  list-style: none;
+  margin-bottom: 25px;
+  color: var(--main-neon);
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--main-neon);
 }
 
 footer {
-    margin: 1em;
-    padding: 10px;
+  margin: 1em;
+  padding: 10px;
 }
 
 footer p {
-    text-align: center;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    font-style: italic;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
 }
+
+/* loading page */
+.loadingZone {
+  color: var(--main-neon);
+  /* position: relative; */
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.body {
+  visibility: hidden;
+}
+
+/*-------------------------------------------------------------
+# END OF FILE
+# Author: Thanwa Chaichankanchang
+--------------------------------------------------------------*/

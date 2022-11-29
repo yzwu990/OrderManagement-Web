@@ -1,0 +1,100 @@
+<!--------------------------------------------------------------
+# Author: Thanwa Chaichankanchang
+# CST8285 Web Programming
+# Assignment 2
+# Frontend JavaScript script
+# This is user login page
+---------------------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Style/data.css">
+    <script src="./Script/script.js" defer></script>
+    <script src="./Script/displayScript.js" defer></script>
+    <script src="./Script/checkToken.js"></script>
+</head>
+
+<body class="body" onload="loading('item')">
+    <div></div>
+
+    <!-- Loading part -->
+    <div class="loadingZone">
+        <img src="./Image/earth.svg" alt="earth image" class="loadingPage">
+        <p class="loading">Checking credentials, please wait </p>
+        <p class="redirect">You didn't login. Redirect to login page.</p>
+    </div>
+
+
+
+    <hr>
+    <div class="menu-bar">
+
+        <!--search bar with filter by and sort by options-->
+        <div class="search-bar">
+            <form>
+                <input class="search" id="search-input" type="text" name="search" onkeyup="searchData();"
+                    placeholder="Search for item">
+                <!-- <button id="search-btn" class="search" onclick="searchData();">Search</button> -->
+
+                <select name="sort" id="sort" class="search" onchange="sortTable(this);">
+                    <option value="">Sort by</option>
+                    <option value="asc id">ID Ascending</option>
+                    <option value="desc id">ID Descending</option>
+                    <option value="asc qty">Lowest Quantity</option>
+                    <option value="desc qty">Highest Quantity</option>
+                    <option value="asc price">Lowest Price</option>
+                    <option value="desc price">Highest Price</option>
+                    <option value="asc date">Oldest Intake Date</option>
+                    <option value="desc date">Newest Intake Date</option>
+
+                </select>
+            </form>
+        </div>
+        <div class="right-menu">
+            <button class="functionButton" onclick="addRow()">Add Record</button>
+            <button class="functionButton" onclick="logout()">Log out</button>
+        </div>
+    </div>
+    <hr>
+    <!-- main area to display content from database-->
+    <main>
+        <div class="main-container">
+            <div class="sidebar">
+                <ul class="filters">
+                    <li class="filter">Filter by:</li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData();">All</button></li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData('Jacket');">Jacket</button></li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData('Shirt');">Shirt</button></li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData('Bikini');">Bikini</button></li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData('Suit');">Suit</button></li>
+                </ul>
+            </div>
+            <div class="content">
+                <!-- <h2>main area to display content from database</h2> -->
+
+            </div>
+        </div>
+    </main>
+    <hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>Copyright @Yanzhang Wu, Thanwa Chaichankanchang, Boling Zhang, Xingyun Zeng </p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<!-------------------------------------------------------------
+# END OF FILE
+# Author: Thanwa Chaichankanchang
+--------------------------------------------------------------->

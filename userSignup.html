@@ -1,0 +1,65 @@
+<!--------------------------------------------------------------
+# Author: Yanzhang Wu
+# CST8285 Web Programming
+# Assignment 2
+# Frontend JavaScript script
+# This is user signup page
+---------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <link rel="stylesheet" href="./Style/portal.css">
+    <link rel="stylesheet" href="./Style/index.css">
+    <script src="./Script/script.js" defer></script>
+    <script src="./Script/validate.js" defer></script>
+</head>
+
+<body>
+    <form action="./Backend/register_submit.php" method="post" onsubmit="return validate_register();">
+        <div class="box">
+            <h2>User Signup</h2>
+
+            <div class="inputBox" id="userInput">
+                <input type="text" name="username" id="username">
+                <span>username</span>
+                <i></i>
+            </div>
+            <div class="inputBox" id="passwordInput">
+                <input type="password" name="password" id="password">
+                <span>password</span>
+                <i></i>
+            </div>
+            <div class="inputBox" id="passwordReInput">
+                <input type="password" name="password_re" id="password_re">
+                <span>retype password</span>
+                <i></i>
+            </div>
+
+            <div class="buttonBox">
+                <button type="button" onclick="validate('user','signup')">SIGNUP</button>
+            </div>
+        </div>
+    </form>
+    <img src="./Image/earth.svg" alt="">
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>Copyright @Yanzhang Wu, Thanwa Chaichankanchang, Boling Zhang, Xingyun Zeng </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>
+
+<!-------------------------------------------------------------
+# END OF FILE
+# Author: Yanzhang Wu
+--------------------------------------------------------------->

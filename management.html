@@ -1,0 +1,96 @@
+<!--------------------------------------------------------------
+# Author: Thanwa Chaichankanchang
+# CST8285 Web Programming
+# Assignment 2
+# Frontend HTML page
+# This is management page to manage administrators and users
+---------------------------------------------------------------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management</title>
+    <link rel="stylesheet" href="./Style/data.css">
+    <script src="./Script/script.js" defer></script>
+    <script src="./Script/displayScript.js" defer></script>
+    <script src="./Script/checkToken.js"></script>
+
+
+
+</head>
+
+<body class="body" onload="loading('admin')">
+    <div></div>
+
+    <!-- Loading part -->
+    <div class="loadingZone">
+        <img src="./Image/earth.svg" alt="earth image" class="loadingPage">
+        <p class="loading">Checking credentials, please wait </p>
+        <p class="redirect">You didn't login. Redirect to login page.</p>
+    </div>
+
+
+
+    <hr>
+    <div class="menu-bar">
+
+        <!--search bar with filter by and sort by options-->
+        <div class="search-bar">
+            <form>
+                <input class="search" id="search-input" type="text" name="search" onkeyup="searchData();"
+                    placeholder="Search for username">
+
+                <select name="sort" id="sort" class="search" onchange="sortTable(this);">
+                    <option value="">Sort by</option>
+                    <option value="asc id">ID Ascending</option>
+                    <option value="desc id">ID Descending</option>
+                </select>
+            </form>
+        </div>
+        <div class="right-menu">
+
+
+            <button class="functionButton" onclick="logout()">Log out</button>
+        </div>
+    </div>
+    <hr>
+    <!-- main area to display content from database-->
+    <main>
+        <div class="main-container">
+            <div class="sidebar">
+
+                <button class="functionButton" onclick="showTable('user')">User Management</button>
+                <button class="functionButton" onclick="showTable('admin')">Admin Management</button>
+                <button class="functionButton" onclick="addRow()">Add Record</button>
+
+            </div>
+
+            <div class="content">
+                <!-- <h2>main area to display content from database</h2> -->
+
+            </div>
+        </div>
+    </main>
+    <hr>
+
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>Copyright @Yanzhang Wu, Thanwa Chaichankanchang, Boling Zhang, Xingyun Zeng </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<!-------------------------------------------------------------
+# END OF FILE
+# Author: Thanwa Chaichankanchang
+--------------------------------------------------------------->
