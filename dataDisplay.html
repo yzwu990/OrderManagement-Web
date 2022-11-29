@@ -20,10 +20,12 @@
                 <input class="search" id ="search-input" type="text" name="search" onkeyup="searchData();" placeholder="Search for item" >
                 <!-- <button id="search-btn" class="search" onclick="searchData();">Search</button> -->
                 
-                <select name="sort" id="sort" class="search">
+                <select name="sort" id="sort" class="search" onchange="sortTable(this);">
                     <option value="">Sort by</option>
-                    <option value="lowest-price">Lowest Quantity</option>
-                    <option value="highest-price">Highest Quantity</option>
+                    <option value="asc qty">Lowest Quantity</option>
+                    <option value="desc qty">Highest Quantity</option>
+                    <option value="asc price">Lowest Price</option>
+                    <option value="desc price">Highest price</option>
                 </select>
             </form>
         </div>
@@ -38,7 +40,7 @@
             <div class="sidebar">
                 <ul class="filters">
                     <li class="filter">Filter by:</li>
-                    <li class="filter"><button class="filter-btn active" onclick="searchData();">All</button></li>
+                    <li class="filter"><button class="filter-btn" onclick="searchData();">All</button></li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Jacket');">Jacket</button></li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Shirt');">Shirt</button></li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Bikini');">Bikini</button></li>
@@ -130,7 +132,7 @@
                     </tr>
                     <tr>
                         <td>Suit</td>
-                        <td>530</td>
+                        <td>530.00</td>
                         <td>0</td>
                         <td>M</td>
                         <td>green</td>

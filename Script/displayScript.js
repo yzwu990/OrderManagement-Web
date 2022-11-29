@@ -38,20 +38,78 @@ function showFiltered(filter) {
   }
 }
 
+//add active class to a filter button once clicked
 var btns = document.getElementsByClassName("filter-btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
     var current = document.getElementsByClassName("active");
-    current[0].classList.remove("active");
+
+    if(current.length > 0){
+      current[0].classList.remove("active");
+    }
     
     this.classList.add("active");   
   });
 }
 
-// var input = document.getElementById("search-input");
-// input.addEventListener("focus", function() {
-//   for (var i = 0; i < btns.length; i++) {
-//     btns[i].classList.remove("active");
-//   }
-// })
+//when typing in a search box, remove active class from filter buttons
+var input = document.getElementById("search-input");
+input.addEventListener("keydown", function() {
+   for (var i = 0; i < btns.length; i++) {
+     btns[i].classList.remove("active");
+   }
+});
 
+function sortTable(option) {
+  var value = option.value;
+  console.log(value);
+  var table = document.getElementById("data-table");
+  var switching = true;
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    var rows = table.getElementsByTagName("tr");
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (var i = 1; i < (rows.length - 1); i++) {
+      // Start by saying there should be no switching:
+      var shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      var x, y;
+      if (value.indexOf("qty") > -1) {
+        x = rows[i].getElementsByTagName("TD")[2];
+        y = rows[i + 1].getElementsByTagName("TD")[2];
+      }
+
+      if (value.indexOf("price") > -1) {
+        x = rows[i].getElementsByTagName("TD")[1];
+        y = rows[i + 1].getElementsByTagName("TD")[1];
+      }
+      
+      // Check if the two rows should switch place:
+      if (value.indexOf("asc") > -1) {
+        if (Number(x.innerHTML) > Number(y.innerHTML)) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+
+      if (value.indexOf("desc") > -1) {
+        if (Number(x.innerHTML) < Number(y.innerHTML)) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
