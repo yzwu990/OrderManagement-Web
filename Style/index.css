@@ -125,6 +125,33 @@ img {
   width: 10%;
 }
 
+/* medium screen */
+@media (max-width: 768px) {
+  .earth-image {
+    width: 20%;
+  }
+}
+
+/* small screen */
+@media (max-width: 450px) {
+  .department {
+    flex-direction: column;
+  }
+
+  .welcome,
+  .main-title {
+    text-align: center;
+  }
+
+  .department {
+    align-items: center;
+  }
+
+  .earth-image {
+    width: 30%;
+  }
+}
+
 /*-------------------------------------------------------------
 # END OF FILE
 # Author: Yanzhang Wu
