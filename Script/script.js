@@ -31,6 +31,7 @@ function sendRequest(url, method, body, callback, role) {
     // connections with success
     if (xhr.status === 200 || xhr.status === 201 || xhr.status === 204) {
 
+      // print response in console for debugging
       console.log(xhr.response)
 
       // parse JSON datax`x
@@ -155,6 +156,10 @@ function showTable(token) {
   header1.innerText = token.toUpperCase() + ' MANAGEMENT';
   header1.className = "main-heading";
   document.querySelector('body div').appendChild(header1);
+
+  // if addrow is disabled
+  let addrow = document.getElementById('addRow');
+  addrow.disabled = false;
 
   sendRequest('./backend/backend.php', 'POST', bodyData, addTable);
 
@@ -397,6 +402,8 @@ function addRow() {
     confirmButton.innerHTML = "Confirm Add";
     cell.appendChild(confirmButton);
 
+    let addrow = document.getElementById('addRow');
+    addrow.disabled = true;
   }
 
 }
@@ -484,6 +491,9 @@ function add_admin(token) {
     id: document.querySelector("td input").value
   })
 
+
+
+
   sendRequest('./backend/backend.php', 'POST', bodyData, showTable, token);
 
 }
@@ -525,6 +535,22 @@ function logout() {
   localStorage.clear();
   location.href = './index.html';
 }
+
+function reset() {
+  let activeClass = document.getElementsByClassName('filter-btn active')[0];
+  activeClass.className = 'filter-btn';
+  let filterAll = document.getElementById("filterAll");
+  filterAll.className = 'filter-btn active';
+  showTable('item');
+}
+
+
+function resetManagement() {
+  const getLocalStorage = localStorage.getItem('token');
+  const getToken = JSON.parse(getLocalStorage).token;
+  showTable(getToken);
+}
+
 
 
 

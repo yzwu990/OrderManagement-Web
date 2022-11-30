@@ -59,6 +59,7 @@ function login($role)
             }
         }
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -89,6 +90,7 @@ function showTable($role)
             http_response_code(404);
         }
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -111,6 +113,7 @@ function updateUser($role)
         $result = mysqli_query($conn, $updateuser);
         echo json_encode($result);
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -133,6 +136,7 @@ function updateAdmin($role)
         $result = mysqli_query($conn, $updateadmin);
         echo json_encode($result);
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -185,6 +189,7 @@ function deleteRow($role)
         $result = mysqli_query($conn, $deleterow);
         echo json_encode($result);
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -221,6 +226,7 @@ function addUser($role)
             http_response_code(409);
         }
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 
@@ -255,6 +261,7 @@ function addAdmin($role)
             http_response_code(409);
         }
     } catch (mysqli_sql_exception $e) {
+        echo json_encode($e);
         http_response_code(400);
     }
 

@@ -57,7 +57,8 @@
             </form>
         </div>
         <div class="right-menu">
-            <button class="functionButton" onclick="addRow()">Add Record</button>
+            <button class="functionButton" onclick="reset()">Reset Page</button>
+            <button class="functionButton" id="addRow" onclick="addRow()">Add Record</button>
             <button class="functionButton" onclick="logout()">Log out</button>
         </div>
     </div>
@@ -68,7 +69,8 @@
             <div class="sidebar">
                 <ul class="filters">
                     <li class="filter">Filter by:</li>
-                    <li class="filter"><button class="filter-btn" onclick="searchData();">All</button></li>
+                    <li class="filter"><button class="filter-btn" id="filterAll" onclick="searchData();">All</button>
+                    </li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Jacket');">Jacket</button></li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Shirt');">Shirt</button></li>
                     <li class="filter"><button class="filter-btn" onclick="searchData('Bikini');">Bikini</button></li>
