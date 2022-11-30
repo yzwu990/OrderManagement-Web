@@ -537,11 +537,17 @@ function logout() {
 }
 
 function reset() {
-  let activeClass = document.getElementsByClassName('filter-btn active')[0];
-  activeClass.className = 'filter-btn';
-  let filterAll = document.getElementById("filterAll");
-  filterAll.className = 'filter-btn active';
-  showTable('item');
+
+  if (document.getElementsByClassName('filter-btn active')[0] == undefined) {
+    showTable('item');
+  } else {
+
+    let activeClass = document.getElementsByClassName('filter-btn active')[0];
+    activeClass.className = 'filter-btn';
+    let filterAll = document.getElementById("filterAll");
+    filterAll.className = 'filter-btn active';
+    showTable('item');
+  }
 }
 
 
