@@ -48,7 +48,6 @@ function sendRequest(url, method, body, callback, role) {
       // 404 error. This is used in login page
     } else if (xhr.status === 404) {
 
-      alert("Username and/or password doesn't match, plase try again.");
 
       if (document.querySelector(".errorMessage") != null) {
         document.querySelector(".errorMessage").remove();
@@ -66,7 +65,6 @@ function sendRequest(url, method, body, callback, role) {
       // 409 error. Happends when username has been used when signup
     } else if (xhr.status === 409) {
 
-      alert("This username has been used. Try a new username instead.")
 
       if (document.querySelector("h2") != null) { //from signup page
         document.querySelector("h2").remove();
@@ -87,7 +85,6 @@ function sendRequest(url, method, body, callback, role) {
       }
 
     } else if (xhr.status === 406) {
-      alert("Invalid input. Please check and try again")
 
       let header2 = document.createElement("h2");
       header2.style.color = "red";
