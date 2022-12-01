@@ -84,7 +84,6 @@ function loading(token) {
 // clear token when leave or refresh the page
 window.onbeforeunload = function () {
     localStorage.clear();
-    return '';
 };
 
 
