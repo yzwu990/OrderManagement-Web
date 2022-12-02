@@ -87,11 +87,6 @@ function sortTable(option) {
         y = rows[i + 1].getElementsByTagName("TD")[0];
       }
 
-      if (value.indexOf("qty") > -1) {
-        x = rows[i].getElementsByTagName("TD")[3];
-        y = rows[i + 1].getElementsByTagName("TD")[3];
-      }
-
       if (value.indexOf("price") > -1) {
         x = rows[i].getElementsByTagName("TD")[2];
         y = rows[i + 1].getElementsByTagName("TD")[2];
@@ -100,8 +95,7 @@ function sortTable(option) {
       if (value.indexOf("date") > -1) {
         x = rows[i].getElementsByTagName("TD")[8];
         y = rows[i + 1].getElementsByTagName("TD")[8];
-        console.log(x.innerText);
-        console.log(y.innerText);
+
       }
 
 

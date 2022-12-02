@@ -219,7 +219,13 @@ function generateTable(table, data, token) {
 
     // confirm change button
     let confirmButton = document.createElement('button');
-    confirmButton.setAttribute('onclick', `update('${token}')`);
+
+    // check if update items
+    if (token = "item") {
+      confirmButton.setAttribute('onclick', `update_${token}('${token}')`);
+    } else {
+      confirmButton.setAttribute('onclick', `update('${token}')`);
+    }
     confirmButton.setAttribute('id', 'confirm' + i);
     confirmButton.innerHTML = "Confirm change";
     editCell.appendChild(confirmButton);
@@ -369,7 +375,13 @@ function addRow() {
     const getLocalStorage = localStorage.getItem('token');
     const getToken = JSON.parse(getLocalStorage).token;
 
-    confirmButton.setAttribute('onclick', `add('${getToken}')`);
+    // check if add items
+    if (token = "item") {
+      confirmButton.setAttribute('onclick', `add_${token}('${token}')`);
+    } else {
+      confirmButton.setAttribute('onclick', `add('${getToken}')`);
+    }
+
     confirmButton.innerHTML = "Confirm Add";
     cell.appendChild(confirmButton);
 
@@ -454,7 +466,7 @@ function add_item(token) {
 
     inputs.push(tdInput[i].value);
   }
-  console.log(inputs.toString());
+
 
   let bodyData = JSON.stringify({
     name: inputs[0],
