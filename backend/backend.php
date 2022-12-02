@@ -107,22 +107,18 @@ function update($role)
     $password = $_POST['password'];
     $id = $_POST['id'];
 
-    $updateRole = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
-
-    // Set name to 'temp' to avoid same username error
-    $removeName = "UPDATE $role SET username = 'temp' WHERE id = $id;";
-    $removeResult = mysqli_query($conn, $removeName);
-
     $sql = "SELECT * FROM $role WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
 
     try {
         if (mysqli_num_rows($result) == 0) {
-
+            $updateRole = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
             $result = mysqli_query($conn, $updateRole);
             echo json_encode($result);
         } else {
-            http_response_code(409);
+            $updateRole = "UPDATE $role SET password = '$password' WHERE id = $id;";
+            $result = mysqli_query($conn, $updateRole);
+            echo json_encode($result);
         }
     } catch (mysqli_sql_exception $e) {
         echo json_encode($e);
@@ -148,9 +144,8 @@ function updateItem($role)
     $status = $_POST['status'];
     $intake_date = $_POST['intake_date'];
 
-    $updateitem = "UPDATE $role SET name = '$name', price = '$price',quantity = '$quantity',size = '$size',color = '$color',location = '$location',status = '$status',intake_date = '$intake_date' WHERE id = $id;";
-
     try {
+        $updateitem = "UPDATE $role SET name = '$name', price = '$price',quantity = '$quantity',size = '$size',color = '$color',location = '$location',status = '$status',intake_date = '$intake_date' WHERE id = $id;";
         if ($result = mysqli_query($conn, $updateitem) == true) {
             echo json_encode($result);
         } else {
@@ -172,9 +167,8 @@ function deleteRow($role)
 
     $id = $_POST['id'];
 
-    $deleterow = "DELETE FROM $role WHERE id = $id;";
-
     try {
+        $deleterow = "DELETE FROM $role WHERE id = $id;";
         $result = mysqli_query($conn, $deleterow);
         echo json_encode($result);
     } catch (mysqli_sql_exception $e) {

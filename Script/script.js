@@ -269,12 +269,12 @@ function edit(row) {
   var i;
 
   for (i = 0; i < x.length; i++) {
-    var ttt = document.createElement("input");
+    var toInput = document.createElement("input");
     var preval = x[i].firstChild.innerText;
-    ttt.setAttribute("value", preval);
-    // ttt.setAttribute("readonly", "true");
+    toInput.setAttribute("value", preval);
+    // toInput.setAttribute("readonly", "true");
     var spanInTD = document.querySelector(".row" + row + " span");
-    x[i].replaceChild(ttt, spanInTD);
+    x[i].replaceChild(toInput, spanInTD);
     document.querySelector("td input").setAttribute("readonly", "true");
   }
 
@@ -377,7 +377,7 @@ function addRow() {
 
     // check if add items
     if (getToken == "item") {
-      confirmButton.setAttribute('onclick', `add_${token}('${token}')`);
+      confirmButton.setAttribute('onclick', `add_${getToken}('${getToken}')`);
     } else {
       confirmButton.setAttribute('onclick', `add('${getToken}')`);
     }
