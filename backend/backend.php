@@ -98,31 +98,8 @@ function showTable($role)
 }
 
 
-// update user table
-function updateUser($role)
-{
-    include 'connect.php';
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-
-    $updateuser = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
-
-    try {
-        $result = mysqli_query($conn, $updateuser);
-        echo json_encode($result);
-    } catch (mysqli_sql_exception $e) {
-        echo json_encode($e);
-        http_response_code(400);
-    }
-
-    $conn->close();
-}
-
-
-// update admin table
-function updateAdmin($role)
+// update admin or user
+function update($role)
 {
     include 'connect.php';
 
@@ -198,8 +175,8 @@ function deleteRow($role)
 
 
 
-// add user 
-function addUser($role)
+// add admin or user
+function add($role)
 {
     include 'connect.php';
 
@@ -209,43 +186,7 @@ function addUser($role)
 
     $sql = "SELECT * FROM $role WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
-
-
-    if ($id == '') {
-        $insertUser = "INSERT INTO $role (username, password ) VALUES ('$username','$password')";
-    } else {
-        $insertUser = "INSERT INTO $role VALUES($id,'$username','$password')";
-    }
-
-    // search name first
-    try {
-        if (mysqli_num_rows($result) == 0) {
-            $result = mysqli_query($conn, $insertUser);
-            echo json_encode($result);
-        } else {
-            http_response_code(409);
-        }
-    } catch (mysqli_sql_exception $e) {
-        echo json_encode($e);
-        http_response_code(400);
-    }
-
-
-    $conn->close();
-}
-
-// add admin
-function addAdmin($role)
-{
-    include 'connect.php';
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $id = $_POST['id'];
-
-    $sql = "SELECT * FROM $role WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
-
+    // echo json_encode($sql);
     if ($id == '') {
         $insertUser = "INSERT INTO $role (username, password ) VALUES ('$username','$password')";
     } else {

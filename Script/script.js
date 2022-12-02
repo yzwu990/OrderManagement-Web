@@ -49,6 +49,7 @@ function sendRequest(url, method, body, callback, role) {
     } else if (xhr.status === 404) {
 
 
+
       if (document.querySelector(".errorMessage") != null) {
         document.querySelector(".errorMessage").remove();
       }
@@ -58,12 +59,14 @@ function sendRequest(url, method, body, callback, role) {
       span.style.borderRadius = "5px";
       span.style.background = "white";
       span.innerHTML = "Username and/or password doesn't match, plase try again.";
+      span.style.borderRadius = "5px";
       span.style.fontSize = "20px";
       span.style.padding = "10px";
       document.getElementById('passwordInput').after(span)
 
       // 409 error. Happends when username has been used when signup
     } else if (xhr.status === 409) {
+
 
 
       if (document.querySelector("h2") != null) { //from signup page
@@ -85,6 +88,7 @@ function sendRequest(url, method, body, callback, role) {
       }
 
     } else if (xhr.status === 406) {
+
 
       let header2 = document.createElement("h2");
       header2.style.color = "red";
@@ -290,7 +294,7 @@ function update_user(token) {
   let bodyData = JSON.stringify({
     username: inputs[0],
     password: inputs[1],
-    func: 'updateUser',
+    func: 'update',
     token: token,
     id: document.querySelector("td input").value
   })
@@ -318,7 +322,7 @@ function update_admin(token) {
   let bodyData = JSON.stringify({
     username: inputs[0],
     password: inputs[1],
-    func: 'updateAdmin',
+    func: 'update',
     token: token,
     id: document.querySelector("td input").value
   })
@@ -420,7 +424,7 @@ function add_user(token) {
   let bodyData = JSON.stringify({
     username: inputs[0],
     password: inputs[1],
-    func: 'addUser',
+    func: 'add',
     token: token,
     id: document.querySelector("td input").value
   })
@@ -445,7 +449,7 @@ function userSignup(token) {
   let bodyData = JSON.stringify({
     username: document.getElementById("username").value,
     password: document.getElementById("password").value,
-    func: 'addUser',
+    func: 'add',
     token: token,
     id: ''
   })
@@ -483,7 +487,7 @@ function add_admin(token) {
   let bodyData = JSON.stringify({
     username: inputs[0],
     password: inputs[1],
-    func: 'addAdmin',
+    func: 'add',
     token: token,
     id: document.querySelector("td input").value
   })
