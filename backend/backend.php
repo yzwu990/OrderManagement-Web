@@ -109,11 +109,16 @@ function update($role)
 
     $updateRole = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
 
+    // Set name to 'temp' to avoid same username error
+    $removeName = "UPDATE $role SET username = 'temp' WHERE id = $id;";
+    $removeResult = mysqli_query($conn, $removeName);
+
     $sql = "SELECT * FROM $role WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
 
     try {
         if (mysqli_num_rows($result) == 0) {
+
             $result = mysqli_query($conn, $updateRole);
             echo json_encode($result);
         } else {
