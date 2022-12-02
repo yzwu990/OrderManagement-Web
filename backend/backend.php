@@ -107,11 +107,18 @@ function update($role)
     $password = $_POST['password'];
     $id = $_POST['id'];
 
-    $updateadmin = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
+    $updateRole = "UPDATE $role SET username = '$username', password = '$password' WHERE id = $id;";
+
+    $sql = "SELECT * FROM $role WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
 
     try {
-        $result = mysqli_query($conn, $updateadmin);
-        echo json_encode($result);
+        if (mysqli_num_rows($result) == 0) {
+            $result = mysqli_query($conn, $updateRole);
+            echo json_encode($result);
+        } else {
+            http_response_code(409);
+        }
     } catch (mysqli_sql_exception $e) {
         echo json_encode($e);
         http_response_code(400);
@@ -186,17 +193,17 @@ function add($role)
 
     $sql = "SELECT * FROM $role WHERE username = '$username'";
     $result = mysqli_query($conn, $sql);
-    // echo json_encode($sql);
+
     if ($id == '') {
-        $insertUser = "INSERT INTO $role (username, password ) VALUES ('$username','$password')";
+        $insert = "INSERT INTO $role (username, password ) VALUES ('$username','$password')";
     } else {
-        $insertUser = "INSERT INTO $role VALUES($id,'$username','$password')";
+        $insert = "INSERT INTO $role VALUES($id,'$username','$password')";
     }
 
     // search name first
     try {
         if (mysqli_num_rows($result) == 0) {
-            $result = mysqli_query($conn, $insertUser);
+            $result = mysqli_query($conn, $insert);
             echo json_encode($result);
         } else {
             http_response_code(409);

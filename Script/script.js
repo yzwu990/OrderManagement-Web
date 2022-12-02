@@ -48,8 +48,6 @@ function sendRequest(url, method, body, callback, role) {
       // 404 error. This is used in login page
     } else if (xhr.status === 404) {
 
-
-
       if (document.querySelector(".errorMessage") != null) {
         document.querySelector(".errorMessage").remove();
       }
@@ -62,24 +60,25 @@ function sendRequest(url, method, body, callback, role) {
       span.style.borderRadius = "5px";
       span.style.fontSize = "20px";
       span.style.padding = "10px";
-      document.getElementById('passwordInput').after(span)
+      document.getElementById('passwordInput').after(span);
 
       // 409 error. Happends when username has been used when signup
     } else if (xhr.status === 409) {
-
-
 
       if (document.querySelector("h2") != null) { //from signup page
         document.querySelector("h2").remove();
         let header2 = document.createElement("h2");
         header2.style.color = "red";
         header2.style.background = "white";
+        header2.style.padding = "5px 5px";
+        header2.style.borderRadius = "5px";
         header2.innerHTML = "This username has been used. Try a new username instead.";
         document.getElementsByClassName("box")[0].prepend(header2);
       } else { // from table page
         let header2 = document.createElement("h2");
         header2.style.color = "red";
         header2.style.background = "white";
+        header2.style.padding = "5px 5px";
         header2.style.borderRadius = "5px";
         header2.innerHTML = "This username has been used. Try a new username instead.";
         document.getElementById("data-table").after(header2);
@@ -88,7 +87,6 @@ function sendRequest(url, method, body, callback, role) {
       }
 
     } else if (xhr.status === 406) {
-
 
       let header2 = document.createElement("h2");
       header2.style.color = "red";
@@ -221,7 +219,7 @@ function generateTable(table, data, token) {
 
     // confirm change button
     let confirmButton = document.createElement('button');
-    confirmButton.setAttribute('onclick', `update_${token}('${token}')`);
+    confirmButton.setAttribute('onclick', `update('${token}')`);
     confirmButton.setAttribute('id', 'confirm' + i);
     confirmButton.innerHTML = "Confirm change";
     editCell.appendChild(confirmButton);
@@ -279,37 +277,9 @@ function edit(row) {
 };
 
 
-// Update User
-function update_user(token) {
 
-  var tdInput = document.querySelectorAll("td input");
-  var i;
-  var inputs = [];
-
-  for (i = 1; i < tdInput.length; i++) {
-
-    inputs.push(tdInput[i].value);
-  }
-
-  let bodyData = JSON.stringify({
-    username: inputs[0],
-    password: inputs[1],
-    func: 'update',
-    token: token,
-    id: document.querySelector("td input").value
-  })
-
-  sendRequest('./backend/backend.php', 'POST', bodyData, showTable, token);
-
-};
-
-
-// Update Admin
-function update_admin(token) {
-
-  if (document.querySelector("h2") != null) {
-    document.querySelector("h2").remove();
-  }
+// Update admin and user
+function update(token) {
 
   var tdInput = document.querySelectorAll("td input");
   var i;
@@ -362,7 +332,7 @@ function update_item(token) {
 
 
 
-// Delete Rows
+// Delete rows
 function deleteRow(token) {
 
   let bodyData = JSON.stringify({
@@ -377,7 +347,7 @@ function deleteRow(token) {
 
 
 
-// Add Rows
+// Add rows
 function addRow() {
 
   if (document.querySelector("table") != null) {
@@ -399,7 +369,7 @@ function addRow() {
     const getLocalStorage = localStorage.getItem('token');
     const getToken = JSON.parse(getLocalStorage).token;
 
-    confirmButton.setAttribute('onclick', `add_${getToken}('${getToken}')`);
+    confirmButton.setAttribute('onclick', `add('${getToken}')`);
     confirmButton.innerHTML = "Confirm Add";
     cell.appendChild(confirmButton);
 
@@ -409,8 +379,11 @@ function addRow() {
 
 }
 
-// Add user from table
-function add_user(token) {
+
+
+
+// Add admin and user from management Table
+function add(token) {
 
   var tdInput = document.querySelectorAll("td input");
   var i;
@@ -430,9 +403,7 @@ function add_user(token) {
   })
 
   sendRequest('./backend/backend.php', 'POST', bodyData, showTable, token);
-
 }
-
 
 
 // Register user
@@ -472,33 +443,6 @@ function redirect() {
 }
 
 
-// Add admin
-function add_admin(token) {
-
-  var tdInput = document.querySelectorAll("td input");
-  var i;
-  var inputs = [];
-
-  for (i = 1; i < tdInput.length; i++) {
-
-    inputs.push(tdInput[i].value);
-  }
-
-  let bodyData = JSON.stringify({
-    username: inputs[0],
-    password: inputs[1],
-    func: 'add',
-    token: token,
-    id: document.querySelector("td input").value
-  })
-
-
-
-
-  sendRequest('./backend/backend.php', 'POST', bodyData, showTable, token);
-
-}
-
 
 // Add item
 function add_item(token) {
@@ -537,6 +481,9 @@ function logout() {
   location.href = './index.html';
 }
 
+
+
+// rest item management page
 function reset() {
 
   if (document.getElementsByClassName('filter-btn active')[0] == undefined) {
@@ -551,7 +498,7 @@ function reset() {
   }
 }
 
-
+// rest management page
 function resetManagement() {
   const getLocalStorage = localStorage.getItem('token');
   const getToken = JSON.parse(getLocalStorage).token;
