@@ -221,7 +221,7 @@ function generateTable(table, data, token) {
     let confirmButton = document.createElement('button');
 
     // check if update items
-    if (token = "item") {
+    if (token == "item") {
       confirmButton.setAttribute('onclick', `update_${token}('${token}')`);
     } else {
       confirmButton.setAttribute('onclick', `update('${token}')`);
@@ -376,7 +376,7 @@ function addRow() {
     const getToken = JSON.parse(getLocalStorage).token;
 
     // check if add items
-    if (token = "item") {
+    if (getToken == "item") {
       confirmButton.setAttribute('onclick', `add_${token}('${token}')`);
     } else {
       confirmButton.setAttribute('onclick', `add('${getToken}')`);
